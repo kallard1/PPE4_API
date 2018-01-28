@@ -50,7 +50,7 @@ class Interventions
     private $updatedAt = 'CURRENT_TIMESTAMP';
 
     /**
-     * @var \AddressCustomers
+     * @var AddressCustomers
      *
      * @ORM\ManyToOne(targetEntity="AddressCustomers")
      * @ORM\JoinColumns({
@@ -60,9 +60,9 @@ class Interventions
     private $addressCustomer;
 
     /**
-     * @var \Customers
+     * @var Customer
      *
-     * @ORM\ManyToOne(targetEntity="Customers")
+     * @ORM\ManyToOne(targetEntity="Customer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      * })
@@ -70,7 +70,7 @@ class Interventions
     private $customer;
 
     /**
-     * @var \Employees
+     * @var Employees
      *
      * @ORM\ManyToOne(targetEntity="Employees")
      * @ORM\JoinColumns({
@@ -80,7 +80,7 @@ class Interventions
     private $employee;
 
     /**
-     * @var \Motives
+     * @var Motives
      *
      * @ORM\ManyToOne(targetEntity="Motives")
      * @ORM\JoinColumns({

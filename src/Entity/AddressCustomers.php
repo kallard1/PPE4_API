@@ -78,9 +78,9 @@ class AddressCustomers
     private $contactId;
 
     /**
-     * @var \Customers
+     * @var Customer
      *
-     * @ORM\ManyToOne(targetEntity="Customers")
+     * @ORM\ManyToOne(targetEntity="Customer")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      * })
