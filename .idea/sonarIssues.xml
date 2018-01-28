@@ -13,12 +13,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/config/routes.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/Entity/AddressCustomers.php">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/Entity/ContactsCustomers.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/Entity/Customer.php">
           <value>
             <set />
           </value>
@@ -54,6 +64,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/Entity/Roles.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/a.dummy">
           <value>
             <set />
           </value>
