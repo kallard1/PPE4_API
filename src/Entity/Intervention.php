@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="interventions", indexes={@ORM\Index(name="IDX_5ADBAD7F845AE038", columns={"address_customer_id"}), @ORM\Index(name="IDX_5ADBAD7F9395C3F3", columns={"customer_id"}), @ORM\Index(name="IDX_5ADBAD7F8C03F15C", columns={"employee_id"}), @ORM\Index(name="IDX_5ADBAD7F9658649C", columns={"motive_id"})})
  * @ORM\Entity
  */
-class Interventions
+class Intervention
 {
     /**
      * @var int
@@ -54,7 +54,7 @@ class Interventions
     /**
      * @var AddressCustomers
      *
-     * @ORM\ManyToOne(targetEntity="AddressCustomers")
+     * @ORM\ManyToOne(targetEntity="AddressCustomers", inversedBy="intervention")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address_customer_id", referencedColumnName="id")
      * })
@@ -62,19 +62,9 @@ class Interventions
     private $addressCustomer;
 
     /**
-     * @var Customer
+     * @var Employee
      *
-     * @ORM\ManyToOne(targetEntity="Customer")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
-     * })
-     */
-    private $customer;
-
-    /**
-     * @var Employees
-     *
-     * @ORM\ManyToOne(targetEntity="Employees")
+     * @ORM\ManyToOne(targetEntity="Employee")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="employee_id", referencedColumnName="id")
      * })
@@ -82,9 +72,9 @@ class Interventions
     private $employee;
 
     /**
-     * @var Motives
+     * @var Motive
      *
-     * @ORM\ManyToOne(targetEntity="Motives")
+     * @ORM\ManyToOne(targetEntity="Motive")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="motive_id", referencedColumnName="id")
      * })
@@ -161,6 +151,54 @@ class Interventions
     public function setUpdatedAt(\DateTime $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return AddressCustomers
+     */
+    public function getAddressCustomer(): AddressCustomers
+    {
+        return $this->addressCustomer;
+    }
+
+    /**
+     * @param AddressCustomers $addressCustomer
+     */
+    public function setAddressCustomer(AddressCustomers $addressCustomer): void
+    {
+        $this->addressCustomer = $addressCustomer;
+    }
+
+    /**
+     * @return Employee
+     */
+    public function getEmployee(): Employee
+    {
+        return $this->employee;
+    }
+
+    /**
+     * @param Employee $employee
+     */
+    public function setEmployee(Employee $employee): void
+    {
+        $this->employee = $employee;
+    }
+
+    /**
+     * @return Motive
+     */
+    public function getMotive(): Motive
+    {
+        return $this->motive;
+    }
+
+    /**
+     * @param Motive $motive
+     */
+    public function setMotive(Motive $motive): void
+    {
+        $this->motive = $motive;
     }
 
 

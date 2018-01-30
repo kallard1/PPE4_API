@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="employees", uniqueConstraints={@ORM\UniqueConstraint(name="UQ__employee__83BE02412A8BE237", columns={"social_security_number"})}, indexes={@ORM\Index(name="IDX_BA82C300D60322AC", columns={"role_id"})})
  * @ORM\Entity
  */
-class Employees
+class Employee
 {
     /**
      * @var int
@@ -163,6 +163,318 @@ class Employees
      * })
      */
     private $role;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastname(): string
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param string $lastname
+     */
+    public function setLastname(string $lastname): void
+    {
+        $this->lastname = $lastname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstname(): string
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param string $firstname
+     */
+    public function setFirstname(string $firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSocialSecurityNumber(): string
+    {
+        return $this->socialSecurityNumber;
+    }
+
+    /**
+     * @param string $socialSecurityNumber
+     */
+    public function setSocialSecurityNumber(string $socialSecurityNumber): void
+    {
+        $this->socialSecurityNumber = $socialSecurityNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param null|string $phone
+     */
+    public function setPhone(?string $phone): void
+    {
+        $this->phone = $phone;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getMobile(): ?string
+    {
+        return $this->mobile;
+    }
+
+    /**
+     * @param null|string $mobile
+     */
+    public function setMobile(?string $mobile): void
+    {
+        $this->mobile = $mobile;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getMaritalStatus(): ?string
+    {
+        return $this->maritalStatus;
+    }
+
+    /**
+     * @param null|string $maritalStatus
+     */
+    public function setMaritalStatus(?string $maritalStatus): void
+    {
+        $this->maritalStatus = $maritalStatus;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getBirthdate(): \DateTime
+    {
+        return $this->birthdate;
+    }
+
+    /**
+     * @param \DateTime $birthdate
+     */
+    public function setBirthdate(\DateTime $birthdate): void
+    {
+        $this->birthdate = $birthdate;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getArrivalDate(): \DateTime
+    {
+        return $this->arrivalDate;
+    }
+
+    /**
+     * @param \DateTime $arrivalDate
+     */
+    public function setArrivalDate(\DateTime $arrivalDate): void
+    {
+        $this->arrivalDate = $arrivalDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBankAccount(): string
+    {
+        return $this->bankAccount;
+    }
+
+    /**
+     * @param string $bankAccount
+     */
+    public function setBankAccount(string $bankAccount): void
+    {
+        $this->bankAccount = $bankAccount;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getStreetNumber(): ?string
+    {
+        return $this->streetNumber;
+    }
+
+    /**
+     * @param null|string $streetNumber
+     */
+    public function setStreetNumber(?string $streetNumber): void
+    {
+        $this->streetNumber = $streetNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStreetName(): string
+    {
+        return $this->streetName;
+    }
+
+    /**
+     * @param string $streetName
+     */
+    public function setStreetName(string $streetName): void
+    {
+        $this->streetName = $streetName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZipCode(): string
+    {
+        return $this->zipCode;
+    }
+
+    /**
+     * @param string $zipCode
+     */
+    public function setZipCode(string $zipCode): void
+    {
+        $this->zipCode = $zipCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string $city
+     */
+    public function setCity(string $city): void
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry(): string
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry(string $country): void
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param null|string $picture
+     */
+    public function setPicture(?string $picture): void
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt(\DateTime $createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(\DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsactive(): ?bool
+    {
+        return $this->isactive;
+    }
+
+    /**
+     * @param bool|null $isactive
+     */
+    public function setIsactive(?bool $isactive): void
+    {
+        $this->isactive = $isactive;
+    }
 
 
 }

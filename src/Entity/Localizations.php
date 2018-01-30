@@ -55,7 +55,7 @@ class Localizations
     /**
      * @var \Employees
      *
-     * @ORM\ManyToOne(targetEntity="Employees")
+     * @ORM\ManyToOne(targetEntity="Employee")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="employee_id", referencedColumnName="id")
      * })
