@@ -72,11 +72,13 @@ class AddressCustomers
     private $updatedAt = 'CURRENT_TIMESTAMP';
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="contact_id", type="integer", nullable=true)
+     * @var ContactsCustomers
+     * @ORM\ManyToOne(targetEntity="ContactsCustomers")
+     * @ORM\JoinColumns({
+     *     @ORM\JoinColumn(name="contact_id", referencedColumnName="id",nullable=true)
+     * })
      */
-    private $contactId;
+    private $contact;
 
     /**
      * @var Customer
@@ -222,21 +224,21 @@ class AddressCustomers
     }
 
     /**
-     * @return int|null
+     * @return ContactsCustomers
      */
-    public function getContactId(): ?int
+    public function getContact(): ContactsCustomers
     {
-        return $this->contactId;
+        return $this->contact;
     }
 
     /**
-     * @param int|null $contactId
+     * @param ContactsCustomers $contact
      */
-    public function setContactId(?int $contactId): void
+    public function setContact(ContactsCustomers $contact): void
     {
-        $this->contactId = $contactId;
+        $this->contact = $contact;
     }
-
+    
     /**
      * @return Customer
      */
@@ -252,6 +254,4 @@ class AddressCustomers
     {
         $this->customer = $customer;
     }
-
-
 }
