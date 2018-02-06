@@ -75,7 +75,7 @@ class AddressCustomers
      * @var ContactsCustomers
      * @ORM\ManyToOne(targetEntity="ContactsCustomers")
      * @ORM\JoinColumns({
-     *     @ORM\JoinColumn(name="contact_id", referencedColumnName="id",nullable=true)
+     *     @ORM\JoinColumn(name="contact_id", referencedColumnName="id", nullable=true)
      * })
      */
     private $contact;
@@ -226,7 +226,7 @@ class AddressCustomers
     /**
      * @return ContactsCustomers
      */
-    public function getContact(): ContactsCustomers
+    public function getContact()
     {
         return $this->contact;
     }
@@ -238,7 +238,7 @@ class AddressCustomers
     {
         $this->contact = $contact;
     }
-    
+
     /**
      * @return Customer
      */
