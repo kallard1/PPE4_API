@@ -9,11 +9,11 @@ doctrine:
     dbal:
         # configure these for your database server
         driver: pdo_sqlsrv
-        host: '185.39.170.186'
+        host: 'wserver.area42.fr'
         port: '1433'
         dbname: 'mygavolt'
-        user: 'sa'
-        password: 'P@ssword/59'
+        user: 'mygavolt'
+        password: 'k2Y*bswsaFyss3j7*Hsf'
         charset: UTF8
 
         # With Symfony 3.3, remove the `resolve:` prefix
