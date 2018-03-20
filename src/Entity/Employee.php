@@ -3,12 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Employees
- *
- * @ApiResource
  * @ORM\Table(name="employees", uniqueConstraints={@ORM\UniqueConstraint(name="UQ__employee__83BE02412A8BE237", columns={"social_security_number"})}, indexes={@ORM\Index(name="IDX_BA82C300D60322AC", columns={"role_id"})})
  * @ORM\Entity
  */
