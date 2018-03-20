@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
-
+// Utilisation des filters pour filtrer les interventions par utilisateurs ET par date ?
 /**
  * Interventions
  *
@@ -36,6 +36,11 @@ class Intervention
      * @ORM\Column(name="report", type="text", length=16, nullable=true)
      */
     private $report;
+
+    /**
+     * @ORM\Column(name="duration", type="time")
+     */
+    private $duration;
 
     /**
      * @var \DateTime
