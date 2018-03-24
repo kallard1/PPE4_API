@@ -57,20 +57,6 @@ class ContactsCustomers
     private $mobile;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
-     */
-    private $createdAt = 'CURRENT_TIMESTAMP';
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
-     */
-    private $updatedAt = 'CURRENT_TIMESTAMP';
-
-    /**
      * @var Customer
      *
      * @ORM\ManyToOne(targetEntity="Customer")
@@ -97,27 +83,11 @@ class ContactsCustomers
     }
 
     /**
-     * @param string $lastname
-     */
-    public function setLastname(string $lastname): void
-    {
-        $this->lastname = $lastname;
-    }
-
-    /**
      * @return string
      */
     public function getFirstname(): string
     {
         return $this->firstname;
-    }
-
-    /**
-     * @param string $firstname
-     */
-    public function setFirstname(string $firstname): void
-    {
-        $this->firstname = $firstname;
     }
 
     /**
@@ -129,27 +99,11 @@ class ContactsCustomers
     }
 
     /**
-     * @param string $email
-     */
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
-
-    /**
      * @return null|string
      */
     public function getPhone(): ?string
     {
         return $this->phone;
-    }
-
-    /**
-     * @param null|string $phone
-     */
-    public function setPhone(?string $phone): void
-    {
-        $this->phone = $phone;
     }
 
     /**
@@ -159,46 +113,4 @@ class ContactsCustomers
     {
         return $this->mobile;
     }
-
-    /**
-     * @param null|string $mobile
-     */
-    public function setMobile(?string $mobile): void
-    {
-        $this->mobile = $mobile;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt(\DateTime $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime $updatedAt
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-
 }

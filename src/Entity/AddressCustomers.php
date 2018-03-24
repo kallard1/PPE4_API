@@ -51,27 +51,6 @@ class AddressCustomers
     private $city;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=50, nullable=false)
-     */
-    private $country;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
-     */
-    private $createdAt = 'CURRENT_TIMESTAMP';
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="updated_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
-     */
-    private $updatedAt = 'CURRENT_TIMESTAMP';
-
-    /**
      * @var ContactsCustomers
      * @ORM\ManyToOne(targetEntity="ContactsCustomers")
      * @ORM\JoinColumns({
@@ -99,7 +78,8 @@ class AddressCustomers
     /**
      * AddressCustomers constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->intervention = new ArrayCollection();
     }
 
@@ -120,27 +100,11 @@ class AddressCustomers
     }
 
     /**
-     * @param null|string $streetNumber
-     */
-    public function setStreetNumber(?string $streetNumber): void
-    {
-        $this->streetNumber = $streetNumber;
-    }
-
-    /**
      * @return string
      */
     public function getStreetName(): string
     {
         return $this->streetName;
-    }
-
-    /**
-     * @param string $streetName
-     */
-    public function setStreetName(string $streetName): void
-    {
-        $this->streetName = $streetName;
     }
 
     /**
@@ -152,75 +116,11 @@ class AddressCustomers
     }
 
     /**
-     * @param string $zipCode
-     */
-    public function setZipCode(string $zipCode): void
-    {
-        $this->zipCode = $zipCode;
-    }
-
-    /**
      * @return string
      */
     public function getCity(): string
     {
         return $this->city;
-    }
-
-    /**
-     * @param string $city
-     */
-    public function setCity(string $city): void
-    {
-        $this->city = $city;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCountry(): string
-    {
-        return $this->country;
-    }
-
-    /**
-     * @param string $country
-     */
-    public function setCountry(string $country): void
-    {
-        $this->country = $country;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt(\DateTime $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime $updatedAt
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
     }
 
     /**
@@ -232,26 +132,10 @@ class AddressCustomers
     }
 
     /**
-     * @param ContactsCustomers $contact
-     */
-    public function setContact(ContactsCustomers $contact): void
-    {
-        $this->contact = $contact;
-    }
-
-    /**
      * @return Customer
      */
     public function getCustomer(): Customer
     {
         return $this->customer;
-    }
-
-    /**
-     * @param Customer $customer
-     */
-    public function setCustomer(Customer $customer): void
-    {
-        $this->customer = $customer;
     }
 }
