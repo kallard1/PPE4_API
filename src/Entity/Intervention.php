@@ -42,13 +42,6 @@ class Intervention
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="duration", type="time", precision=0, scale=0, nullable=false, unique=false)
-     */
-    private $duration;
-
-    /**
-     * @var \DateTime
-     *
      * @ORM\Column(name="created_at", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $createdAt = 'CURRENT_TIMESTAMP';
@@ -107,14 +100,6 @@ class Intervention
     }
 
     /**
-     * @param \DateTime $date
-     */
-    public function setDate(\DateTime $date): void
-    {
-        $this->date = $date;
-    }
-
-    /**
      * @return null|string
      */
     public function getReport(): ?string
@@ -131,51 +116,11 @@ class Intervention
     }
 
     /**
-     * @return \DateTime
-     */
-    public function getCreatedAt(): \DateTime
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt(\DateTime $createdAt): void
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt(): \DateTime
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime $updatedAt
-     */
-    public function setUpdatedAt(\DateTime $updatedAt): void
-    {
-        $this->updatedAt = $updatedAt;
-    }
-
-    /**
      * @return AddressCustomers
      */
     public function getAddressCustomer(): AddressCustomers
     {
         return $this->addressCustomer;
-    }
-
-    /**
-     * @param AddressCustomers $addressCustomer
-     */
-    public function setAddressCustomer(AddressCustomers $addressCustomer): void
-    {
-        $this->addressCustomer = $addressCustomer;
     }
 
     /**
@@ -187,42 +132,10 @@ class Intervention
     }
 
     /**
-     * @param Employee $employee
-     */
-    public function setEmployee(Employee $employee): void
-    {
-        $this->employee = $employee;
-    }
-
-    /**
      * @return Motive
      */
     public function getMotive(): Motive
     {
         return $this->motive;
-    }
-
-    /**
-     * @param Motive $motive
-     */
-    public function setMotive(Motive $motive): void
-    {
-        $this->motive = $motive;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDuration()
-    {
-        return $this->duration;
-    }
-
-    /**
-     * @param mixed $duration
-     */
-    public function setDuration($duration): void
-    {
-        $this->duration = $duration;
     }
 }
