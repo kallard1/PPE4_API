@@ -52,6 +52,13 @@ class Employee
     private $email;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="UserID", type="string", length=11, nullable=false)
+     */
+    private $userId;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -81,6 +88,14 @@ class Employee
     public function getEmail(): string
     {
         return $this->email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserId(): string
+    {
+        return $this->userId;
     }
 
 }
