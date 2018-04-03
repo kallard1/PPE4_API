@@ -13,5 +13,5 @@ api_platform:
         paths: []
     resource_class_directories:
             - '%kernel.project_dir%/src/Entity'
-#    formats:
-#        json: ['application/json']
+    formats:
+        json: ['application/json']
