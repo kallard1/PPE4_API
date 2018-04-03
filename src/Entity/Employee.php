@@ -2,16 +2,15 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * Employees
- * @ApiResource()
- * @ApiFilter(SearchFilter::class, properties={"email": "exact"})
+ * @ApiResource
  * @ORM\Table(name="employees", uniqueConstraints={@ORM\UniqueConstraint(name="UQ__employee__83BE02412A8BE237", columns={"social_security_number"})}, indexes={@ORM\Index(name="IDX_BA82C300D60322AC", columns={"role_id"})})
  * @ORM\Entity
  */
@@ -55,6 +54,8 @@ class Employee
      * @var string
      *
      * @ORM\Column(name="UserID", type="string", length=11, nullable=false)
+     * @ApiFilter(SearchFilter::class, strategy="exact")
+     * @Groups({"interventions"})
      */
     private $userId;
 
