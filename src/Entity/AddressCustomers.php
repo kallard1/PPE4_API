@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * AddressCustomers
@@ -26,6 +27,7 @@ class AddressCustomers
      * @var string|null
      *
      * @ORM\Column(name="street_number", type="string", length=4, nullable=true)
+     * @Groups({"interventions"})
      */
     private $streetNumber;
 
@@ -33,6 +35,7 @@ class AddressCustomers
      * @var string
      *
      * @ORM\Column(name="street_name", type="string", length=255, nullable=false)
+     * @Groups({"interventions"})
      */
     private $streetName;
 
@@ -40,6 +43,7 @@ class AddressCustomers
      * @var string
      *
      * @ORM\Column(name="zip_code", type="string", length=10, nullable=false)
+     * @Groups({"interventions"})
      */
     private $zipCode;
 
@@ -47,6 +51,7 @@ class AddressCustomers
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255, nullable=false)
+     * @Groups({"interventions"})
      */
     private $city;
 
@@ -56,6 +61,7 @@ class AddressCustomers
      * @ORM\JoinColumns({
      *     @ORM\JoinColumn(name="contact_id", referencedColumnName="id", nullable=true)
      * })
+     * @Groups({"interventions"})
      */
     private $contact;
 
@@ -66,6 +72,7 @@ class AddressCustomers
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="customer_id", referencedColumnName="id")
      * })
+     * @Groups({"interventions"})
      */
     private $customer;
 

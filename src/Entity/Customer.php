@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Customers
@@ -26,6 +27,7 @@ class Customer
      * @var string|null
      *
      * @ORM\Column(name="business_name", type="string", length=255, nullable=true)
+     * @Groups({"interventions"})
      */
     private $businessName;
 
@@ -33,6 +35,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=75, nullable=false)
+     * @Groups({"interventions"})
      */
     private $lastname;
 
@@ -40,6 +43,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=75, nullable=false)
+     * @Groups({"interventions"})
      */
     private $firstname;
 
@@ -47,6 +51,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     * @Groups({"interventions"})
      */
     private $email;
 
@@ -54,6 +59,7 @@ class Customer
      * @var string|null
      *
      * @ORM\Column(name="phone", type="string", length=15, nullable=true)
+     * @Groups({"interventions"})
      */
     private $phone;
 
@@ -61,6 +67,7 @@ class Customer
      * @var string|null
      *
      * @ORM\Column(name="mobile", type="string", length=15, nullable=true)
+     * @Groups({"interventions"})
      */
     private $mobile;
 

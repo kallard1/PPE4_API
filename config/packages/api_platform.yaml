@@ -1,5 +1,17 @@
 api_platform:
+    # The title of the API.
+    title: 'Mygavolt API'
+
+    # The version of the API.
+    version: '1.0.0'
+
+    collection:
+        pagination:
+            # To enable or disable pagination for all resource collections by default.
+            enabled: false
     mapping:
-        paths: ['%kernel.project_dir%/src/Entity']
-    formats:
-        json: ['application/json']
+        paths: []
+    resource_class_directories:
+            - '%kernel.project_dir%/src/Entity'
+#    formats:
+#        json: ['application/json']

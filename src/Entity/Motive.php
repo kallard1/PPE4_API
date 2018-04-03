@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Motives
@@ -18,6 +19,7 @@ class Motive
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups({"interventions"})
      */
     private $id;
 
@@ -25,6 +27,7 @@ class Motive
      * @var string|null
      *
      * @ORM\Column(name="label", type="string", length=50, nullable=true)
+     * @Groups({"interventions"})
      */
     private $label;
 

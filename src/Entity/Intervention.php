@@ -2,15 +2,25 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 // Utilisation des filters pour filtrer les interventions par utilisateurs ET par date ?
 
 /**
  * Interventions
  *
- * @ApiResource()
+ * @ApiResource(
+ *     attributes={
+ *     "normalization_context"={
+ *      "groups"={"interventions"}
+ *     }
+ * })
+ * @ApiFilter(SearchFilter::class, properties={"employee": "exact", "date"})
  * @ORM\Table(name="interventions", indexes={@ORM\Index(name="IDX_5ADBAD7F845AE038", columns={"address_customer_id"}), @ORM\Index(name="IDX_5ADBAD7F9395C3F3", columns={"customer_id"}), @ORM\Index(name="IDX_5ADBAD7F8C03F15C", columns={"employee_id"}), @ORM\Index(name="IDX_5ADBAD7F9658649C", columns={"motive_id"})})
  * @ORM\Entity
  */
@@ -22,6 +32,7 @@ class Intervention
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @Groups({"interventions"})
      */
     private $id;
 
@@ -29,6 +40,7 @@ class Intervention
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime", nullable=false)
+     * @Groups({"interventions"})
      */
     private $date;
 
@@ -46,6 +58,7 @@ class Intervention
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address_customer_id", referencedColumnName="id")
      * })
+     * @Groups({"interventions"})
      */
     private $addressCustomer;
 
@@ -56,6 +69,7 @@ class Intervention
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="employee_id", referencedColumnName="id")
      * })
+     * @Groups({"interventions"})
      */
     private $employee;
 
@@ -66,6 +80,7 @@ class Intervention
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="motive_id", referencedColumnName="id")
      * })
+     * @Groups({"interventions"})
      */
     private $motive;
 
