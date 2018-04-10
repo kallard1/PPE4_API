@@ -51,6 +51,14 @@ class Employee
     private $email;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="isActive", type="boolean", nullable=false)
+     * @Groups({"interventions"})
+     */
+    private $isActive;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="UserID", type="string", length=11, nullable=false)
@@ -97,6 +105,14 @@ class Employee
     public function getUserId(): string
     {
         return $this->userId;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->isActive;
     }
 
 }
