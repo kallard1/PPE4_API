@@ -53,10 +53,10 @@ class Employee
     /**
      * @var boolean
      *
-     * @ORM\Column(name="isActive", type="boolean", nullable=false)
+     * @ORM\Column(name="isActive", type="boolean", nullable=true, options={"default"="1"})
      * @Groups({"interventions"})
      */
-    private $isActive;
+    private $isActive = 1;
 
     /**
      * @var string
@@ -110,7 +110,7 @@ class Employee
     /**
      * @return bool
      */
-    public function isActive(): bool
+    public function getIsActive(): bool
     {
         return $this->isActive;
     }
