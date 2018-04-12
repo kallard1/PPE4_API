@@ -20,7 +20,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *      "groups"={"interventions"}
  *     }
  * })
- * @ApiFilter(SearchFilter::class, properties={"employee": "exact", "date"})
+ * @ApiFilter(DateFilter::class, properties={"date"})
  * @ORM\Table(name="interventions", indexes={@ORM\Index(name="IDX_5ADBAD7F845AE038", columns={"address_customer_id"}), @ORM\Index(name="IDX_5ADBAD7F9395C3F3", columns={"customer_id"}), @ORM\Index(name="IDX_5ADBAD7F8C03F15C", columns={"employee_id"}), @ORM\Index(name="IDX_5ADBAD7F9658649C", columns={"motive_id"})})
  * @ORM\Entity
  */
@@ -48,6 +48,7 @@ class Intervention
      * @var string|null
      *
      * @ORM\Column(name="report", type="text", length=16, nullable=true)
+     * @Groups({"interventions"})
      */
     private $report;
 
@@ -69,6 +70,7 @@ class Intervention
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="employee_id", referencedColumnName="id")
      * })
+     * @ApiFilter(SearchFilter::class, strategy="exact")
      * @Groups({"interventions"})
      */
     private $employee;
