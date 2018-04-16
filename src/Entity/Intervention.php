@@ -9,8 +9,6 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
-// Utilisation des filters pour filtrer les interventions par utilisateurs ET par date ?
-
 /**
  * Interventions
  *
