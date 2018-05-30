@@ -2,13 +2,21 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * Customers
  *
+ * @ApiResource(
+ *     attributes={
+ *     "normalization_context"={
+ *      "groups"={"customers"}
+ *     }
+ * })
  * @ORM\Table(name="customers")
  * @ORM\Entity
  */
@@ -27,7 +35,7 @@ class Customer
      * @var string|null
      *
      * @ORM\Column(name="business_name", type="string", length=255, nullable=true)
-     * @Groups({"interventions"})
+     * @Groups({"interventions", "customers"})
      */
     private $businessName;
 
@@ -35,7 +43,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=75, nullable=false)
-     * @Groups({"interventions"})
+     * @Groups({"interventions", "customers"})
      */
     private $lastname;
 
@@ -43,7 +51,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=75, nullable=false)
-     * @Groups({"interventions"})
+     * @Groups({"interventions", "customers"})
      */
     private $firstname;
 
@@ -51,7 +59,7 @@ class Customer
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
-     * @Groups({"interventions"})
+     * @Groups({"interventions", "customers"})
      */
     private $email;
 
@@ -59,7 +67,7 @@ class Customer
      * @var string|null
      *
      * @ORM\Column(name="phone", type="string", length=15, nullable=true)
-     * @Groups({"interventions"})
+     * @Groups({"interventions", "customers"})
      */
     private $phone;
 
@@ -67,9 +75,16 @@ class Customer
      * @var string|null
      *
      * @ORM\Column(name="mobile", type="string", length=15, nullable=true)
-     * @Groups({"interventions"})
+     * @Groups({"interventions", "customers"})
      */
     private $mobile;
+
+    /**
+     * @ApiFilter(SearchFilter::class, strategy="exact")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="customer")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=true)
+     */
+    private $category;
 
     /**
      * @return int
@@ -94,6 +109,7 @@ class Customer
     {
         return $this->lastname;
     }
+
     /**
      * @return string
      */
@@ -117,12 +133,21 @@ class Customer
     {
         return $this->phone;
     }
+
     /**
      * @return null|string
      */
     public function getMobile(): ?string
     {
         return $this->mobile;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 
 }
